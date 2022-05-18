@@ -4,24 +4,30 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
-import CustomLink from '../../CustomLink/CustomLink';
-import auth from '../../firebase.init';
+import CustomLink from '../CustomLink/CustomLink';
+import auth from '../firebase.init';
 
 const Navber = () => {
+    const [open, setOpen] = useState(false);
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate();
+    const handleSignOut = () => {
+        signOut(auth);
+    }
     const menuItems = <>
         <CustomLink to='/home'>Home</CustomLink>
         <CustomLink to='/appointment'>Appointment</CustomLink>
         <CustomLink to='/review'>Review</CustomLink>
         <CustomLink to='/contact'>Contact</CustomLink>
         <CustomLink to='/about'>About</CustomLink>
-        <CustomLink to='/login'>Login</CustomLink>
+        {user ? <button onClick={handleSignOut}>Sign Out</button>
+            :
+            <CustomLink to='/login'>Login</CustomLink>
+        }
+        
     </>
-    const navigate = useNavigate();
-    const [open, setOpen] = useState(false);
-    const [user] = useAuthState(auth);
-    const handleLogout = () => {
-        signOut(auth);
-    }
+
+    
     return (
         <div className='flex items-center h-14 px-6 justify-between bg-slate-600 text-white  relative z-50'>
             <div>
