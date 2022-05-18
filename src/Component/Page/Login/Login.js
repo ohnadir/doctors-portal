@@ -6,11 +6,14 @@ import { useSendPasswordResetEmail  } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, user] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
     const [email, setEmail] = useState('');
     const handleEmail = (event) => {
         setEmail(event.target.value);
+    }
+    if (user) {
+        console.log(user);
     }
     const handleGoogleSignIn = () => {
         signInWithGoogle();
