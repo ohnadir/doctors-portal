@@ -12,7 +12,7 @@ const AvailableAppointment = ({ date }) => {
             .then(data=> setServices(data))
     },[])
     return (
-        <div className='max-w-xl lg:max-w-4xl mx-auto mt-10'>
+        <div className='max-w-xl lg:max-w-4xl mx-auto my-10'>
             <h1 className='text-center mb-8 text-[#19D3AE]'>Available Appointments on {format(date, 'PP')}</h1>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
                 {

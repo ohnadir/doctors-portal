@@ -14,7 +14,7 @@ import MyReview from './Component/Page/Dashboard/MyReview';
 
 function App() {
   return (
-    <div className="App">
+    <div className="max-w-7xl mx-auto">
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>

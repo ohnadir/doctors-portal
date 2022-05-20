@@ -32,7 +32,7 @@ const Navber = () => {
 
     
     return (
-        <div className='flex items-center h-14 px-6 justify-between text-black  relative z-50'>
+        <div className='flex items-center h-14 justify-between text-black  relative z-50'>
             <div>
                 <span className='cursor-pointer' onClick={()=>navigate('/home')}>Perfume wareHouse</span>
             </div>
@@ -51,7 +51,7 @@ const Navber = () => {
                 </div>
             )}
             <div>
-                <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open</label>
+                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open</label>
             </div>
         </div>
     );
