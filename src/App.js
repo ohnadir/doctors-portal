@@ -8,6 +8,9 @@ import Navbar from './Component/Shared/Navbar';
 import Home from './Component/Page/Home/Home';
 import Appointment from './Component/Page/Appointment/Appointment';
 import RequireAuth from './Component/Page/Login/RequireAuth'
+import Dashboard from './Component/Page/Dashboard/Dashboard';
+import MyAppointment from './Component/Page/Dashboard/MyAppointment';
+import MyReview from './Component/Page/Dashboard/MyReview';
 
 function App() {
   return (
@@ -18,7 +21,15 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/appointment' element={<RequireAuth><Appointment/></RequireAuth>}></Route>
+        <Route path='/appointment' element={
+          <RequireAuth>
+            <Appointment />
+          </RequireAuth>
+        }></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<MyAppointment />}></Route>
+          <Route path='review' element={<MyReview/>}></Route>
+        </Route>
       </Routes>
       <ToastContainer />
     </div>

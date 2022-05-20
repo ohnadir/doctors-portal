@@ -20,6 +20,9 @@ const Navber = () => {
         <CustomLink to='/review'>Review</CustomLink>
         <CustomLink to='/contact'>Contact</CustomLink>
         <CustomLink to='/about'>About</CustomLink>
+        {
+            user && <CustomLink to='/dashboard'>Dashboard</CustomLink>
+        }
         {user ? <button onClick={handleSignOut}>Sign Out</button>
             :
             <CustomLink to='/login'>Login</CustomLink>
@@ -29,7 +32,7 @@ const Navber = () => {
 
     
     return (
-        <div className='flex items-center h-14 px-6 justify-between bg-slate-600 text-white  relative z-50'>
+        <div className='flex items-center h-14 px-6 justify-between text-black  relative z-50'>
             <div>
                 <span className='cursor-pointer' onClick={()=>navigate('/home')}>Perfume wareHouse</span>
             </div>
@@ -47,6 +50,9 @@ const Navber = () => {
                     </div>
                 </div>
             )}
+            <div>
+                <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open</label>
+            </div>
         </div>
     );
 };
