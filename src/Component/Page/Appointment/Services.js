@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Services = ({ service }) => {
+const Services = ({ service, setTreatment }) => {
     const {name, slots} = service;
     return (
         <div className='mx-auto shadow-xl p-4'>
@@ -13,7 +13,10 @@ const Services = ({ service }) => {
                 }</p>
                 <p>{slots.length} {slots.length > 1 ? 'spaces' : 'space'} available</p>
                 <div className='mt-2'>
-                    <label className='bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC] rounded-lg uppercase text-white w-full px-2 py-[4px]' htmlFor="">Book Appointment</label>
+                    <label
+                        htmlFor="booking-modal"
+                        onClick={()=>setTreatment(service)}
+                        className='bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC] cursor-pointer rounded-lg uppercase text-white w-full px-2 py-[4px]' >Book Appointment</label>
                 </div>
             </div>
         </div>
